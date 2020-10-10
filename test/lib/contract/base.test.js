@@ -2,7 +2,7 @@ let EthContract = require("../../../lib/utils/ethContract")
 
 const fs = require('fs');
 
-let source = fs.readFileSync("/Users/tom/github/hd-address-sign/test/contracts/base.token.sol", 'utf8');
+let source = fs.readFileSync("/Users/liyu/github/hd-address-sign/test/contracts/base.token.sol", 'utf8');
 
 let url = "https://ropsten.infura.io/v3/393758f6317645be8a1ee94a874e12d9"
 
