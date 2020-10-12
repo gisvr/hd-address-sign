@@ -5,17 +5,12 @@ let url = "https://ropsten.infura.io/v3/393758f6317645be8a1ee94a874e12d9"
 let daiAddress = '0xd25532602CD97915Ad1EeD45B28167c5be160042' //
 let BatAddress = '0x11333dd4c35e89E06a785b925CaB5D97A69576C6'  // WETH
 
-// mints
+// mint
 
 let poolAddress = "0xE1B7eb81D06aA3c1DEa15082fa94BA2EBB26DFE7"
 let poolAbi = require("./abi/LendingPool.json")
 
-let poolCoreAddress = "0xCaec37116D4626CcC378A897B01a0F93f379583E"
-let poolCoreAbi = require("./abi/LendingPool.json")
-
-
 let ethContract = new EthContract({chain: "ropsten"}, url)
-let poolCoreContract = ethContract.contract(poolCoreAbi, poolCoreAddress)
 let poolContract = ethContract.contract(poolAbi, poolAddress)
 
 // 获取储备资产的地址
@@ -39,14 +34,14 @@ it("aave getReserves call", async () => {
 //     aTokenAddress: '0xF8dAcF50a51722C7b37F600D924B14Af9382EFC1',
 //     lastUpdateTimestamp: '1602327085' //timestamp
 // 获取储备资产信息
-it("aave getReserveData call", async () => {
+it("mint getReserveData call", async () => {
     let reserves = await poolContract.methods.getReserveData(daiAddress).call()
     console.log(reserves)
 })
 
 
-// 获取储备资产信息
-it("aave getUserReserveData call", async () => {
+// 获取用户储备资产信息
+it("mint getUserReserveData call", async () => {
     let reserves = await poolContract.methods.getUserReserveData(daiAddress,"0x9F7A946d935c8Efc7A8329C0d894A69bA241345A").call()
     console.log(reserves)
 })

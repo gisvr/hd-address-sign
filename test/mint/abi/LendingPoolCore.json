@@ -1460,21 +1460,6 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_reserveToRemove",
-        "type": "address"
-      }
-    ],
-    "name": "removeLastAddedReserve",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "internalType": "address",
         "name": "_reserve",
         "type": "address"
       },
