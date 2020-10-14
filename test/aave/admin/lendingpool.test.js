@@ -15,6 +15,7 @@ it("getReserves call", async () => {
     console.log(reserves)
 })
 
+// 获取资产的配置信息，重点是 策略地址
 it("getReserveConfigurationData DAI", async () => {
     let reservesConf = await lpContract.methods.getReserveConfigurationData(daiAddress).call()
     console.log(reservesConf)
@@ -31,7 +32,7 @@ it("getReserveConfigurationData DAI", async () => {
     */
 })
 
-// 获取交易对在合约里面对余额
+// 获取资产的数据
 it("getReserveData DAI", async () => {
     let reserves = await lpContract.methods.getReserveData(daiAddress).call()
     console.log(reserves)
