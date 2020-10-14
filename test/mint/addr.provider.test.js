@@ -13,6 +13,11 @@ let proxyContract = ethContract.contract(providerAbi, mintAddress)
 
 //方法参考 https://etherscan.io/address/0x24a42fD28C976A61Df5D00D0599C34c4f90748c8#readContract
 
+it("getFeeProvider", async () => {
+    let reserves = await proxyContract.methods.getFeeProvider().call()
+    console.log(reserves)
+})
+
 // 获取getLendingPool的代理地址
 it("getLendingPool call", async () => {
     let reserves = await proxyContract.methods.getLendingPool().call()
@@ -42,5 +47,10 @@ it("getLendingPoolConfigurator call", async () => {
     console.log(reserves)
 })
 
-0x6b175474e89094c44da98b954eedeac495271d0f
+it("getLendingPoolConfigurator call", async () => {
+    let reserves = await proxyContract.methods.getLendingPoolConfigurator().call()
+    console.log(reserves)
+})
+
+// 0x6b175474e89094c44da98b954eedeac495271d0f
 

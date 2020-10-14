@@ -13,6 +13,9 @@ let proxyContract = ethContract.contract(providerAbi, mintAddress)
 
 //方法参考 https://etherscan.io/address/0x24a42fD28C976A61Df5D00D0599C34c4f90748c8#readContract
 
+// onlyLendingPoolConfigurator
+// 4. getLendingPoolConfigurator
+//setLendingPoolConfiguratorImpl
 it("setLendingPoolConfiguratorImpl call", async () => {
     let  confAddr = await proxyContract.methods.setLendingPoolConfiguratorImpl("0x2E9D15d024187477F85Ac7cD7154aD8556EDb8E2")
 
