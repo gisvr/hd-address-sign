@@ -13,6 +13,7 @@ let lpConfAddress = "0x179Aa6f2b5a8CdC6a65A35B22fAdC492e05fA264"
 const daiAddress = '0xd25532602CD97915Ad1EeD45B28167c5be160042' // repost
 
 let lpConfAbi = require("./abi/admin/LendingPoolConfigurator.json")
+
 let ethContract = new EthContract({chain: "ropsten"}, url)
 
 // LendingPoolCore imp proxy
@@ -43,6 +44,17 @@ it("enableReserveStableBorrowRate send", async () => {
     // 需要去调整固定利率
 })
 
+// 开启固定利率 只能通过config 合约进行调用
+it("poolAddressesProvider send", async () => {
+    let contract = ethContract.contract(lpConfAbi, "0xaad6C1204c231A2710abE8643ECc1b4dad780bcB")
+    let setStableRate = await contract.methods.poolAddressesProvider().call().catch(e=>{
+        throw e
+    })
+
+    console.log(setStableRate)
+})
+
+//
 
 
  

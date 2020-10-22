@@ -12,8 +12,8 @@ let ethContract = new EthContract({chain: "ropsten"}, url)
 
 // input variables
 const daiAddress = '0xd25532602CD97915Ad1EeD45B28167c5be160042' // repost
-const daiAmountinWei = ethContract.web3.utils.toWei("2000", "gwei")
-let interestRateMode = 1 // variable rate
+const daiAmountinWei = ethContract.web3.utils.toWei("2", "ether")
+let interestRateMode = 1 // variable rate:2  / stable rate:1
 const referralCode = '0'
 
 
@@ -28,6 +28,26 @@ it("mint borrow send", async () => {
         daiAddress,
         daiAmountinWei,
         interestRateMode,
+        referralCode
+    )
+
+    let txRecepit = await ethContract.contractSend(lpAddress, borrow, privateKey)
+    console.log(txRecepit)
+    // https://ropsten.etherscan.io/tx/0xa98afc7ac62e9cc3e8eced0457ab12a751f4673d0b5231500bb2399547a2502b#internal
+})
+
+const wbtcAddr = "0x02Bf5C4b79361D88Df2883b58A3926E99EeD104e"
+// 借资产
+it("mint wbtc borrow send", async () => {
+    //borrow(address _reserve, uint256 _amount, uint256 _interestRateMode, uint16 _referralCode)
+
+    // let userAddr ="0x9F7A946d935c8Efc7A8329C0d894A69bA241345A"
+    let privateKey = "6b3d62de1c55740660693db23917efff49306f4d6616c145d98a4a2d7a740caa"
+    let lpContract = ethContract.contract(lpAbi, lpAddress)
+    let borrow = await lpContract.methods.borrow(
+        wbtcAddr,
+        daiAmountinWei,
+        2,
         referralCode
     )
 

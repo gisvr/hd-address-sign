@@ -61,7 +61,7 @@ it("eth contract delopy", async () => {
     console.log(contract.interface)
     console.log(contract.bytecode)
     console.log(contract.gasEstimates.creation[1])
-    let foo1 = await ethContract.delopy(contract.interface, contract.bytecode, contract.gasEstimates.creation[1],privateKey)
+    let foo1 = await ethContract.delopy(contract.bytecode, contract.gasEstimates.creation[1],privateKey)
     console.log(foo1)
 })
 

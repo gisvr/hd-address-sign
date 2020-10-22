@@ -36,7 +36,12 @@ it("aave getReserves call", async () => {
 // 获取储备资产信息
 it("mint getReserveData call", async () => {
     let reserves = await poolContract.methods.getReserveData(daiAddress).call()
-    console.log(reserves)
+
+    for(let key in reserves)  {
+        // console.log(reserveData)
+        if(key.length<3) continue
+        console.log(key,reserves[key])
+    }
 })
 
 
